@@ -1,3 +1,4 @@
+import 'package:arwa/screens/Home%20Tab/movie_details.dart';
 import 'package:flutter/material.dart';
 import 'screens/splash_screen.dart';
 import 'colors.dart';
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       routes: {
         SplashScreen.routename : (context) => SplashScreen(),
         CustomBottomNavBar.routename : (context) => CustomBottomNavBar(),
+        MovieDetailsScreen.routename : (context) => MovieDetailsScreen()
 
       },
     );

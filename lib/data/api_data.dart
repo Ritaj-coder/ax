@@ -2,6 +2,7 @@
 import 'dart:convert';
 
 import 'package:arwa/data/api_endpoints.dart';
+import 'package:arwa/data/model/Response/MoviesDetails.dart';
 import 'package:arwa/data/model/Response/MoviesResponse.dart';
 import 'package:http/http.dart' as http;
 
@@ -79,5 +80,20 @@ class ApIManager {
       throw e ;
     }
   }
+
+  static Future<MoviesDetails> getMovieDetails(int movieId) async {
+    Uri url = Uri.https(ApiName.basemovie,Endpoints.moviedetails(movieId),);
+
+    try {
+      var response = await http.get(url);
+
+      var bodyString = response.body;
+      var json = jsonDecode(bodyString);
+      return MoviesDetails.fromJson(json);
+    } catch (e) {
+      throw e;
+    }
+  }
+
 
 }

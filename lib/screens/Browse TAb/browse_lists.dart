@@ -1,6 +1,7 @@
 
 
 import 'package:arwa/data/model/Response/MoviesResponse.dart';
+import 'package:arwa/screens/Home%20Tab/movie_details.dart';
 import 'package:flutter/material.dart';
 
 class BrowseList extends StatelessWidget {
@@ -15,13 +16,22 @@ class BrowseList extends StatelessWidget {
     return  Stack(
             alignment: Alignment.topLeft,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: Image.asset(
-                  imagePath,
-                  fit: BoxFit.cover,
-                  width: double.infinity,
-                  height: double.infinity,
+              InkWell(
+                onTap: (){
+                  Navigator.pushNamed(
+                      context,
+                      MovieDetailsScreen.routename ,
+                      arguments: movies.id
+                  );
+                },
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: Image.asset(
+                    imagePath,
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                    height: double.infinity,
+                  ),
                 ),
               ),
               Positioned(
